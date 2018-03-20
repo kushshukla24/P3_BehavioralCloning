@@ -16,14 +16,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image10]: ./writeup_images/abc.jpg "Model Visualization"
 [image1]: ./writeup_images/center.jpg "CenterImage"
 [image2]: ./writeup_images/center_track2.jpg "CenterImageTrack2"
 [image3]: ./writeup_images/collectedDataSteeringAngleDistribution.png "Initial Histogram"
 [image4]: ./writeup_images/collectedIncludingLRDataSteeringAngleDistribution.png "Final Histogram"
 [image5]: ./writeup_images/VisualizingLossAcrossEpochs.png "Loss Over Epochs"
 [image6]: ./writeup_images/preprocessing.png "Preprocessed Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image7]: ./writeup_images/nVidia_model.png "ModelVisualization"
 
 ---
 ### Concepts Used
@@ -160,9 +159,9 @@ _________________________________________________________________
 ```
 
 
-Here is a visualization of the architecture 
+Here is a visualization of the architecture from nVidia paper (http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) as this project follows the same with additional L2 regularization and dropout layers:
 
-![alt text][image10]
+![alt text][image7]
 
 #### 3. Creation of the Training Set & Training Process
 
