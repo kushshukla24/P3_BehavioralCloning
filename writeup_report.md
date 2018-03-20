@@ -62,7 +62,7 @@ The model consists of total 9 layers, distributed as follows:
 * 5 convolution layer, and,
 * 3 fully connected layer. 
 
-The model is defined using Keras framework within **ConvNet** method of ***model.py (line 79-100)***. 
+The model is defined using Keras framework within **ConvNet** method of **model.py** .
 
 The normalization layer utilizes hard-coded normalizer to accelerate processing via GPU.
 
