@@ -35,18 +35,6 @@ def cropImage(image, top=60, bottom=30, left=0, right=0):
 	h,w,c = image.shape
 	return image[top:h-bottom][left:w-right]
 
-def preprocess_image(img):
-    '''
-    Method for preprocessing images: this method is the same used in drive.py, except this version uses
-    BGR to YUV and drive.py uses RGB to YUV (due to using cv2 to read the image here, where drive.py images are 
-    received in RGB)
-    '''
-    new_img = cropImage(img)
-    new_img = resizeImage(new_img)
-    new_img = cv2.cvtColor(new_img, cv2.COLOR_RGB2YUV)
-    return new_img
-
-
 class SimplePIController:
     def __init__(self, Kp, Ki):
         self.Kp = Kp
@@ -86,7 +74,9 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
-        img = preprocess_image(image_array)
+        
+        # the image require cropping and resizing as prerequisite operation to utilize the model.h5 
+        img = cv2.cvtColor(resizeImage(cropImage(image_array)), cv2.COLOR_RGB2YUV)
         steering_angle = float(model.predict(img[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
